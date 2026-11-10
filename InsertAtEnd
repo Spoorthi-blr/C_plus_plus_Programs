@@ -1,0 +1,6 @@
+void InsertAtEnd(int **arr, int *size; int val)
+{
+	int arrSize = *size;
+	(*arr)[arrSize] = val;
+	arrSize++;
+}
