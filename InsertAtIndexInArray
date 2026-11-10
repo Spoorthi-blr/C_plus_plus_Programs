@@ -1,0 +1,12 @@
+void insert(int arr[], int& n, int index, int element) {
+    for (int i = n; i > index; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[index] = element;
+    n++;
+}
+
+9 99 10 8 57 36
+0  1  2 3  4  5
+
+index = 5, element 52, n = 6
