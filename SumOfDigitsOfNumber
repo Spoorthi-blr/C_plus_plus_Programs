@@ -1,0 +1,19 @@
+You are given an integer n. Your task is to reverse the digits, ensuring that the reversed number has no leading zeroes.
+
+class Solution {
+  public:
+    int reverseDigits(int n) {
+        // Code here
+        int digit = 0;
+        int num = 0;
+        int i = 0;
+        while(n != 0)
+        {
+            digit = n % 10;
+            n = n / 10;
+            num = num*10 + digit; 
+            i++;
+        }
+        return num;
+    }
+};
