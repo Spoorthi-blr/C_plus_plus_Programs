@@ -1,0 +1,48 @@
+Given a rectangular matrix mat[][] of size n x m, and return a 1D array containing all its elements in spiral order.
+
+Examples:
+
+Input: mat[][] = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
+Output: [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
+
+class Solution {
+  public:
+    vector<int> spirallyTraverse(vector<vector<int>> &mat) {
+    int top = 0;
+    int bottom = mat.size()-1;
+    int left = 0;
+    int right = mat[0].size()-1;
+    vector<int>arr;
+    int i = 0, j = 0, k = 0, l = 0;
+    
+    while(top <= bottom && left <= right)
+    {
+    	for(i = left; i <= right; i++)
+    	{
+    		arr.push_back(mat[top][i]);
+    	}
+    	top++;	
+    
+    	for(j = top; j <= bottom; j++)
+    	{
+    		arr.push_back(mat[j][right]);
+    	}
+    	right--;		
+    
+    	for(k = right; k >= left; k--)
+    	{
+    		arr.push_back(mat[bottom][k]);
+    	}
+    	bottom--;	
+    
+    
+    	for(l = bottom; l >= top; l--)
+    	{
+    		arr.push_back(mat[l][left]);
+    	}
+    	left++;
+    }
+    
+    return arr;
+    }
+};
