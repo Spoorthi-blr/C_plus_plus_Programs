@@ -1,0 +1,29 @@
+
+int partition(int arr[], int low, int high)
+{
+  int i = low-1;
+  
+  int pivot = arr[high];
+  for(int j = low; j < high; j++)
+  {
+      if(arr[j] <= pivot)
+      {
+        i++;
+        int temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
+      }
+}
+int temp1 = arr[i+1];
+arr[i+1] = arr[high];
+arr[high] = temp1;
+
+return i+1;
+}
+
+void quicksort(int arr[], int l, int h)
+{
+    int pi = partition(arr,l,h);
+    quicksort(arr, low, pi-1);
+    quicksort(arr. pi+1, high);
+}
