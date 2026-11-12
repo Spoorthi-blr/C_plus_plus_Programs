@@ -1,0 +1,61 @@
+Merge Sort is one of the most important sorting algorithms for product-company coding interviews.
+
+It uses the Divide and Conquer technique.
+
+The basic idea is:
+1. Divide the array into two halves.
+2. Divide again until each subarray contains only one element.
+3. Merge the smaller subarrays back together in sorted order.
+
+
+void merge(int arr[], int l, int m, int r)
+{
+  vector<int> temp;
+  int i = l;
+  int j = m+1;
+  while(i < m && j < r)
+  {
+    if(arr[i] < arr[j])
+    {
+      temp.push_back(arr[i]);
+      i++;
+    }
+    else
+    {
+      temp.push_back(arr[j]);
+      j++;
+    }
+    if(i <=m)
+    {
+        for(int i = l; i <= m; i++)
+        {
+            temp.push_back(arr[i]);    
+        }
+    }
+
+    if(j <=r)
+    {
+        for(int j = m+1; i <= r; i++)
+        {
+            temp.push_back(arr[j]);    
+        }
+    }
+
+    for(int k = l; k <=r ; k++)
+    {
+      arr[k] = arr[k-l];
+    }
+
+  }
+
+  void mergesort(int arr[], int l, int r)
+  {
+      m = l + (r-l)/2;
+          if (l >= r) {
+            return;
+        }
+      mergesort(arr,l,m);
+      mergesort(arr,m+1,r);
+      merge(arr,l,m,r);
+  }
+
